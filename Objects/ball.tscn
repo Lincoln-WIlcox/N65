@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds0ykqkf6eeum"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hntgt"]
+friction = 0.65
+bounce = 0.7
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wy157"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_mxlu4"]
+
+[node name="Ball" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00861, 0)
+physics_material_override = SubResource("PhysicsMaterial_hntgt")
+linear_velocity = Vector3(5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_wy157")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_mxlu4")
+metadata/_edit_lock_ = true
