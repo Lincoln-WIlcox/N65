@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgeb425ba72vh"]
+[gd_scene load_steps=6 format=3 uid="uid://dgeb425ba72vh"]
 
 [ext_resource type="PackedScene" uid="uid://ds0ykqkf6eeum" path="res://Objects/ball.tscn" id="1_47rl4"]
 [ext_resource type="PackedScene" uid="uid://8i3pjfmkhjvp" path="res://Player/player.tscn" id="2_qg8bf"]
+[ext_resource type="PackedScene" uid="uid://bgyhfrsch4402" path="res://Objects/coin/coin.tscn" id="3_mfi11"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1cqb6"]
 size = Vector3(10, 1, 10)
@@ -29,9 +30,13 @@ metadata/_edit_lock_ = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.955428, -0.275491, -0.106126, 0.0842783, -0.599032, 0.796277, -0.28294, 0.751841, 0.59555, 0, 0, 0)
 shadow_enabled = true
+shadow_opacity = 0.95
 
 [node name="Ball" parent="." instance=ExtResource("1_47rl4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04229, 2.00861, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_qg8bf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77481, 0.0127435, -0.291067)
+
+[node name="Coin" parent="." instance=ExtResource("3_mfi11")]
+transform = Transform3D(0.682244, 0, 0.731124, 0, 1, 0, -0.731124, 0, 0.682244, -1, 1, 3)

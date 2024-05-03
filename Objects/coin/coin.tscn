@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgyhfrsch4402"]
+
+[ext_resource type="Script" path="res://Objects/coin/coin.gd" id="1_qta0w"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b1k3s"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dkv0b"]
+height = 0.1
+radius = 0.3
+
+[sub_resource type="Animation" id="Animation_llosa"]
+resource_name = "spin"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, 0, 0.707107, 0, 0.707107, 0.5, 1, 0, 1, 0, -4.37114e-08, 0.75, 1, 0, -0.707107, 0, 0.707107)
+
+[sub_resource type="Animation" id="Animation_rg5xr"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sfhki"]
+_data = {
+"RESET": SubResource("Animation_rg5xr"),
+"spin": SubResource("Animation_llosa")
+}
+
+[node name="Coin" type="Area3D"]
+script = ExtResource("1_qta0w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_b1k3s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dkv0b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sfhki")
+}
